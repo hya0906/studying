@@ -2,6 +2,7 @@
 
 opencv와 딥러닝을 이용한 감정인식
 ===
+![image](https://user-images.githubusercontent.com/59861622/150936072-416c17c3-79fc-4c02-89b2-7af4ed3e6b24.png)
 
 깃허브 사용이 미숙하여 1,2,3,4번으로 저장
 
