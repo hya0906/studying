@@ -1,4 +1,6 @@
-emotion_detection.py -> 추가한 얼굴감정인식
+원본들 - 수정되지 않은 상태 
+
+emotion_detection.py -> 추가한 얼굴감정인식 프로그램
 
 project1.py -> 기존 프로젝트
 
