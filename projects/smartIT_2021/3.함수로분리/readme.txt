@@ -1,3 +1,5 @@
+2.test폴더를 함수로 분리함
+
 11/5-6
 기본 UI만듬
 1.tkinter elements-ui_test.py
