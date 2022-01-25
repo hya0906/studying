@@ -1,6 +1,6 @@
 2.test폴더를 함수로 분리함
 
-사용하거나 만든 파일/ 캡쳐사진 - https://drive.google.com/drive/folders/1BMGmdELJ5DGsqCOtJEhFC5rDdXeM37lL?usp=sharing
+사용(기존+새거)하거나 만든 파일/ 캡쳐사진 - https://drive.google.com/drive/folders/1BMGmdELJ5DGsqCOtJEhFC5rDdXeM37lL?usp=sharing
 
 11/5-6
 
