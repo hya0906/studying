@@ -9,4 +9,4 @@
 
 사용한 데이터셋 - https://drive.google.com/drive/folders/1flJOTU4PXncpw0E6grB1XJ4zzrkM_1jN?usp=sharing
 
-제출한 ppt, 자료 - https://drive.google.com/drive/folders/1RVzPc_-LXJPcgX3oPnvNOk4J9kzRPMRl?usp=sharing
+제출한 ppt, 제출한 자료 - https://drive.google.com/drive/folders/1RVzPc_-LXJPcgX3oPnvNOk4J9kzRPMRl?usp=sharing
