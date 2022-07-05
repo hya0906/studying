@@ -1,0 +1,129 @@
+% 1) 카메라 인식 후 사진찍고 저장.
+cam = webcam('罗技高清网络摄像机 C930c')
+preview(cam); %실시간 라이브 스트리밍 보기
+time = 5;
+names = "사진이름쓰세요";
+t = timer('TimerFcn', 'stat=false; disp(''찰칵!'')', 'StartDelay', time); %5초 타이머생성
+pictures = ["전체사진","물체사진"];
+for c = 1:2
+    x = pictures(c)+"을 찍으세요";
+    shot = input(x,'s');
+    if shot == 'yes'
+        start(t)
+        stat = true;
+        while(stat == true)
+            disp(time) %변수이름을 제외한 변수x의 값 표시
+            pause(1)
+            time = time - 1;
+        end
+        time = 5;
+        if c == 1
+            imgs1 = snapshot(cam); %전체사진찍기
+            named1 = input(names,'s'); %사진이름쓰기
+            imshow(imgs1);
+            title(named1);
+            %지정된 경로로 이미지 저장
+            imwrite(imgs1, strcat('C:\Users\BON210\Documents\MATLAB\', strcat(named1, '.jpg')), 'jpg');
+        else
+            imgs2 = snapshot(cam); %물체사진찍기
+            named2 = input(names,'s'); %사진이름쓰기
+            imshow(imgs2);
+            title(named2);
+            %지정된 경로로 이미지 저장
+            imwrite(imgs2, strcat('C:\Users\BON210\Documents\MATLAB\', strcat(named2, '.jpg')), 'jpg');
+        end
+    end
+    
+%% 2: 저장된 이미지 불러오기
+% 카메라 촬영으로부터 저장된 이미지를 불러온 뒤 변수에 저장한다
+boxImage = imread('lee1.jpg');
+figure; % Figure 1
+imshow(boxImage);
+title('Image of a lee');
+
+sceneImage = imread('lee2.jpg');
+figure; % Figure 2
+imshow(sceneImage);
+title('Image of a lee2');
+
+%% 3: 읽어온 이미지 흑백화 및 특징점 발견/추출
+% rgb2gray 함수를 사용해 불러온 이미지를 흑백화한다
+I = rgb2gray(boxImage);
+figure % Figure 3
+imshow(I)
+k = rgb2gray(sceneImage);
+figure % Figure 4
+imshow(k)
+
+% detectSURFFeatures 함수를 사용해 각 이미지의 특징점들을 파악한다
+boxPoints = detectSURFFeatures(I);
+scenePoints = detectSURFFeatures(k);
+
+% image1에서 100개의 특징점 인식
+figure; % Figure 5
+imshow(I);
+title('100 Strongest Feature Points from lee Image');
+hold on;
+plot(selectStrongest(boxPoints, 100));
+
+% image2에서 200개의 특징점 인식
+figure; % Figure 6
+imshow(k);
+title('200 Strongest Feature Points from Scene Image');
+hold on;
+plot(selectStrongest(scenePoints, 200));
+
+% 특징 디스크립터(feature descriptors) 추출
+% 이진 또는 명암 이미지에서 디스크립터라는 특징 벡터와 해당 위치를 추출해서 반환
+[boxFeatures, boxPoints] = extractFeatures(I, boxPoints);
+[sceneFeatures, scenePoints] = extractFeatures(k, scenePoints);
+
+%% 4: 두 이미지 사이의 유사한 특징점 파악
+% 입력된 두 특징에서 일치하는 인덱스 반환
+boxPairs = matchFeatures(boxFeatures, sceneFeatures);
+
+matchedBoxPoints = boxPoints(boxPairs(:, 1), :);
+matchedScenePoints = scenePoints(boxPairs(:, 2), :);
+figure; % Figure 7
+showMatchedFeatures(I, k, matchedBoxPoints, ...
+    matchedScenePoints, 'montage');
+title('Putatively Matched Points (Including Outliers)');
+
+%% 5: 일치하는 특징점 연결 및 객체 인식
+% 추정된 일치하는 포인트를 이용하여 물체의 위치 파악
+[tform, inlierIdx] = ...
+    estimateGeometricTransform2D(matchedBoxPoints, matchedScenePoints, 'affine');
+inlierBoxPoints   = matchedBoxPoints(inlierIdx, :);
+inlierScenePoints = matchedScenePoints(inlierIdx, :);
+
+figure; % Figure 8
+% 매개변수로 지정된 시각화 스타일을 사용하여 boxImage와 sceneImage 이미지 표시
+showMatchedFeatures(I, k, inlierBoxPoints, ...
+    inlierScenePoints, 'montage');
+title('Matched Points (Inliers Only)');
+
+% 제시된 이미지의 다각형 바운딩
+boxPolygon = [1, 1;...                       % top-left
+    size(I, 2), 1;...                        % top-right
+    size(I, 2), size(I, 1);...               % bottom-right
+    1, size(I, 1);...                        % bottom-left
+    1, 1];                      % top-left again to close the polygon
+
+newBoxPolygon = transformPointsForward(tform, boxPolygon);
+
+figure; % Figure 9
+imshow(k);
+hold on;
+line(newBoxPolygon(:, 1), newBoxPolygon(:, 2), 'Color', 'y');
+title('Detected lee');
+
+%% 6: 인식된 객체 표시
+
+y1 = cast(newBoxPolygon,'double');
+y1 = array2table(y1);   %double형 벡터를 테이블로 변환
+y1 = table2array(y1);   %테이블을 배열로 변환
+y1=reshape(y1,1,numel(y1));
+img=imcrop(sceneImage,[y1(1),y1(6),y1(2)-y1(1),y1(9)-y1(6)]); 
+%위의 인식된 좌표를 이용하여 그림 자르기
+figure;
+imshow(img);
