@@ -1,0 +1,15 @@
+﻿  ChildView.cpp
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(103,33): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(116,129): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(116,101): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(116,75): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(116,46): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(119,62): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(119,34): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(121,127): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(121,99): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(121,72): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(121,43): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(123,62): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\USER\Desktop\MFC_project\MFC_project\ChildView.cpp(123,34): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  MFC_project.vcxproj -> C:\Users\USER\Desktop\MFC_project\x64\Debug\MFC_project.exe
