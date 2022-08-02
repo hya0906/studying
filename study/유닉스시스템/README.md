@@ -1,2 +1,3 @@
-#다운로드
-VMware Workstation
+# 다운로드
+VMware Workstation 16 Player
+Ubuntu
