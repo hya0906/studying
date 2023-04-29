@@ -8,4 +8,5 @@ Single GPU / Multi GPU
 - https://velog.io/@khs0415p/Pytorch-Multi-GPU-%ED%95%99%EC%8A%B5  
 
 ## 2. emo_data.py  
-- 데이터를 클래스로 폴더로 분류. 레이블은 메모장으로 따로 존재.
+- 데이터를 클래스로 폴더로 분류. 레이블은 메모장으로 따로 존재.  
+- data : aligned.vol1/vol2.egg, label : list_patition_label.txt
