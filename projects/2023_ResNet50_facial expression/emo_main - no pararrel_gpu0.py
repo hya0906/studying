@@ -324,7 +324,7 @@ def main_worker():
     best_acc = 0  # best test accuracy
     start_epoch = 0  # start from epoch 0 or last checkpoint epoch
 
-    batch_size = 32
+    batch_size = 16
     num_worker = 8
     epochs = 80
     learning_rate = 0.001
