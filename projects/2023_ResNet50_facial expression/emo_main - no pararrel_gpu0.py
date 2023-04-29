@@ -307,6 +307,7 @@ def resume_from(file_name):
     # 지금 시작할 epoch은 기존 epoch + 1 즉 다음 epoch입니다.
     start_epoch = model_data['epoch'] + 1
     return start_epoch, optimizer, model
+
 def main_worker():
     global net, trainloader,testloader, device, best_acc, start_epoch, epochs, criterion, optimizer
 
@@ -339,7 +340,7 @@ def main_worker():
 
     # Data
     print('==> Preparing data..')
-    trainloader, validloader = get_train_loader(16, 8)
+    trainloader, validloader = get_train_loader(batch_size, num_worker)
     transform_test = transforms.Compose([
         transforms.Resize(112),
         transforms.ToTensor(),
@@ -348,7 +349,7 @@ def main_worker():
 
     testset = torchvision.datasets.ImageFolder(root="C:/Users/711_2/Desktop/Yuna_Hong/facial_expression/aligned/test",
                                                transform=transform_test)
-    testloader = torch.utils.data.DataLoader(testset, batch_size=16, shuffle=False, num_workers=8)
+    testloader = torch.utils.data.DataLoader(testset, batch_size=16, shuffle=False, num_workers=4)
     print("train",len(trainloader))
     print("valid",len(validloader))
     print("test",len(testloader))
