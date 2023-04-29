@@ -22,6 +22,7 @@ from matplotlib import pyplot as plt
 import time
 import datetime
 import gc
+import random
 import librosa
 
 def calculate_norm(dataset):
@@ -182,7 +183,10 @@ def test(epoch, testloader):
         }
         if not os.path.isdir('checkpoint'):
             os.mkdir('checkpoint')
-        torch.save(state, f'./checkpoint/test_{round(acc,4)}_{batch_idx}.pth')
+        try:
+            torch.save(state, f'./checkpoint/test_{round(acc,4)}_{batch_idx}.pth')
+        except:
+            torch.save(state, f'./checkpoint/test_{round(acc, 4)}_{batch_idx}_{random.randrange(1,21)}.pth')
         best_acc = acc
     test_loss = test_loss / len(testloader)
     correct = correct * 100 / total
