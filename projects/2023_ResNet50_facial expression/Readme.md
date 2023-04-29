@@ -8,5 +8,10 @@ Single GPU / Multi GPU
 - https://velog.io/@khs0415p/Pytorch-Multi-GPU-%ED%95%99%EC%8A%B5  
 
 ## 2. emo_data.py  
-- 데이터를 클래스로 폴더로 분류. 레이블은 메모장으로 따로 존재.  
+- 사진데이터를 클래스로 폴더로 분류. 레이블은 메모장으로 따로 존재.  
 - data : aligned.vol1/vol2.egg, label : list_patition_label.txt
+  
+## 3. 소리데이터  
+![다운로드](https://user-images.githubusercontent.com/59861622/235306897-d06588e0-147b-4f66-8550-26eb5361d0ce.png)  
+- data : https://zenodo.org/record/1188976#.ZE0iZnZBxPZ
+- custom dataset만들기: https://m.blog.naver.com/sooftware/221646956569
