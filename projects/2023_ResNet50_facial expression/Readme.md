@@ -6,6 +6,7 @@ Single GPU / Multi GPU
 ## 1. Multi GPU 
 - https://medium.com/daangn/pytorch-multi-gpu-%ED%95%99%EC%8A%B5-%EC%A0%9C%EB%8C%80%EB%A1%9C-%ED%95%98%EA%B8%B0-27270617936b  
 - https://velog.io/@khs0415p/Pytorch-Multi-GPU-%ED%95%99%EC%8A%B5  
+- - emo-main_no parrarel.py / emo-main_parrel.py multi GPU/ singualr GPU
 
 ## 2. emo_data.py  
 - 사진데이터를 클래스로 폴더로 분류. 레이블은 메모장으로 따로 존재.  
