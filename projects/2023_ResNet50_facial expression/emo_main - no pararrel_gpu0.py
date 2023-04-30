@@ -220,7 +220,7 @@ def draw_confusion_matrix(testloader, classes, epoch, learning_rate):
     sn.heatmap(df_cm, annot=True)
     plt.savefig(f"./emotion-confusion matrix_Adam_{epoch+1}_{learning_rate}.png")
 
-def draw_graph(train_acc, valid_acc, test_acc, train_losses, valid_losses, test_losses):
+def draw_graph(train_acc, valid_acc, test_acc, train_losses, valid_losses, test_losses, epoch):
     plt.figure(figsize=(12, 6))
     plt.figure(1)
     plt.subplot(1, 2, 1)
@@ -239,7 +239,7 @@ def draw_graph(train_acc, valid_acc, test_acc, train_losses, valid_losses, test_
     plt.plot(valid_losses, label="val_loss", color="blue")
     plt.legend()
     plt.tight_layout()  ## <--마지막에 호출
-    plt.savefig('./train_val')
+    plt.savefig(f'./train_val_{epoch}')
     # plt.show()
 
     plt.figure(figsize=(12, 6))  # 8:6
@@ -258,7 +258,7 @@ def draw_graph(train_acc, valid_acc, test_acc, train_losses, valid_losses, test_
     plt.plot(test_losses, label="test_loss", color="green")
     plt.legend()
     plt.tight_layout()  ## <--마지막에 호출
-    plt.savefig('./test')
+    plt.savefig(f'./test_{epoch}')
     # plt.show()
 
 def get_train_loader(batch_size, num_worker):
@@ -394,14 +394,14 @@ def main_worker():
             'optimizer_state_dict': optimizer.state_dict(),
             'model_state_dict': net.state_dict(),
             'input_dim': 112
-        }, os.path.join("./weight/Adam_0.001", 'epoch-{}.pth'.format(epoch)))
+        }, os.path.join("emo_project_test/epoch_weight/112_Adam_80_0.001_bs16,16_t,v,t sepdata", 'epoch-{}.pth'.format(epoch)))
     end = time.time()
     sec = end - start
     times = str(datetime.timedelta(seconds=sec)).split(".")
     print(times[0])
 
     draw_confusion_matrix(testloader, classes, epoch, learning_rate)
-    draw_graph(train_acc, valid_acc, test_acc, train_losses, valid_losses, test_losses)
+    draw_graph(train_acc, valid_acc, test_acc, train_losses, valid_losses, test_losses, epoch)
 
 
 
@@ -410,4 +410,3 @@ if __name__ == "__main__":
     torch.cuda.empty_cache()
     #main()
     main_worker()
-
