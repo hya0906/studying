@@ -8,6 +8,7 @@ Single GPU / Multi GPU
 - cuda: 11.2  https://developer.nvidia.com/cuda-11.2.2-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exelocal
 - cudnn: 8.1.1 (또는 8.1.0)  https://developer.nvidia.com/rdp/cudnn-archive
 - NVIDIA Studio 드라이버: 528.49  https://www.nvidia.co.kr/download/driverResults.aspx/199792/kr
+- tensorflow-gpu: 2.9.0  https://www.tensorflow.org/install/source_windows?hl=ko#gpu
 
 # 참고 사이트
 ## 1. Multi GPU 
