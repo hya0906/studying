@@ -2,6 +2,13 @@ ResNet50으로 facial expression 학습
 Raf-DB사용  
 Single GPU / Multi GPU  
 
+## 연구실 컴퓨터 GEFORCE RTX 2080ti
+-https://webnautes.tistory.com/1454#google_vignette
+-https://blog.nerdfactory.ai/2021/04/30/Setting-up-CUDA-11.1.html
+- cuda: 11.2  https://developer.nvidia.com/cuda-11.2.2-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exelocal
+- cudnn: 8.1.1 (또는 8.1.0)  https://developer.nvidia.com/rdp/cudnn-archive
+- NVIDIA Studio 드라이버: 528.49  https://www.nvidia.co.kr/download/driverResults.aspx/199792/kr
+
 # 참고 사이트
 ## 1. Multi GPU 
 - https://medium.com/daangn/pytorch-multi-gpu-%ED%95%99%EC%8A%B5-%EC%A0%9C%EB%8C%80%EB%A1%9C-%ED%95%98%EA%B8%B0-27270617936b  
