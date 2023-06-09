@@ -30,7 +30,8 @@ if __name__ == "__main__":
     epoch = 10
     learning_rate= 0.001
     classes = ('surprised', 'fearful', 'disgusted', 'happy', 'sad', 'angry', 'neutral')
-
+    
+    #모델 불러오기
     net = ResNet50().cuda()
     #net = nn.DataParallel(net).cuda()
     #net = torch.load(PATH + 'model.pt')  # 전체 모델을 통째로 불러옴, 클래스 선언 필수
@@ -47,7 +48,8 @@ if __name__ == "__main__":
     testset = torchvision.datasets.ImageFolder(root="C:/Users/711_2/Desktop/Yuna_Hong/facial_expression/aligned/test",
                                                transform=transform_test)
     testloader = torch.utils.data.DataLoader(testset, batch_size=16, shuffle=False, num_workers=4)
-
+    
+    #confusion matrix 그리기
     y_pred = []
     y_true = []
     plt.title(f"emotion-confusion matrix_112_Adam_{epoch}_{learning_rate}")
