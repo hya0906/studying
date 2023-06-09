@@ -25,3 +25,7 @@ Single GPU / Multi GPU
 - data : https://zenodo.org/record/1188976#.ZE0iZnZBxPZ
 - custom dataset만들기: https://m.blog.naver.com/sooftware/221646956569
 
+## 4. 파이토치 학습한 모델 불러오기/confusion matrix 그리기
+- load_model.py
+- test_face.py(ResNet50 모델 불러서 이미지 predict test
+
