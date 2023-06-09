@@ -31,7 +31,8 @@ if __name__ == "__main__":
     epoch = 60
     learning_rate= 0.001
     classes = ('surprised', 'fearful', 'disgusted', 'happy', 'sad', 'angry', 'neutral')
-
+    
+    #모델 불러오기
     device = torch.device('cpu')
     net = ResNet50().to(device)
     #net = nn.DataParallel(net).to(device)
@@ -58,7 +59,8 @@ if __name__ == "__main__":
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     cv2.imshow("image",img)
     cv2.imshow("gray",gray)
-
+    
+    #face detect
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
     for (x, y, w, h) in faces:
         roi_gray = gray[y:y + h, x:x + w]
@@ -73,9 +75,9 @@ if __name__ == "__main__":
     #pil_image.show()
 
     tensor = transform(pil_image)
-    tensor = tensor.unsqueeze(0)
+    tensor = tensor.unsqueeze(0) # input 데이터 차원 추가
     tensor = tensor.to(device)
-    output = net.forward(tensor)
+    output = net.forward(tensor) # predict
 
     probs = torch.nn.functional.softmax(output, dim=1)
     print(probs)
