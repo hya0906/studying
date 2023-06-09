@@ -73,7 +73,8 @@ if __name__ == "__main__":
     # convert from openCV2 to PIL
     pil_image = Image.fromarray(color_coverted)
     #pil_image.show()
-
+    
+    #data transform
     tensor = transform(pil_image)
     tensor = tensor.unsqueeze(0) # input 데이터 차원 추가
     tensor = tensor.to(device)
@@ -87,23 +88,3 @@ if __name__ == "__main__":
     cls = classes[classes.item()]
     print(cls, ' at confidence score:{0:.2f}'.format(conf))
 
-    '''
-    # Transform
-    input = transform(pil_image)
-
-    # unsqueeze batch dimension, in case you are dealing with a single image
-    input = input.unsqueeze(0)
-    output = net(input)
-    print(output)
-
-    #image = np.array(cv2.imread('C:\\Users\\711_2\\Desktop\\Yuna_Hong\\Dataset\\aligned_Raf-DB\\test\\5\\test_0387_aligned.jpg'))
-    #image = cv2.resize(image, dsize=(112, 112), interpolation=cv2.INTER_LINEAR)
-    #image_swap = np.swapaxes(image, 0, 2)
-    #image_swap = np.expand_dims(image_swap, axis=0)
-    #print(image_swap.shape)
-
-    #tensor = torch.from_numpy(image_swap).type(torch.FloatTensor)
-    #print(tensor)
-
-    #print(net(tensor))
-    '''
