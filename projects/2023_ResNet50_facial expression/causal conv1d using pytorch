@@ -1,0 +1,23 @@
+#causal conv1d 구현
+#https://stopspoon.tistory.com/48
+import torch.nn as nn
+
+def CausalConv1d(in_channels, out_channels, kernel_size, dilation=1, **kwargs):
+    pad=(kernel_size - 1)* dilation
+    return nn.Conv1d(in_channels, out_channels, kernel_size, padding=pad, dilation=dilation)
+
+class Network(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = CausalConv1d(60,60,kernel_size=3, dilation=2)
+
+    def forward(self, x):
+        print(x.shape)
+        x = self.conv1(x)
+        print(x.shape)
+        x = x[:,:,:-self.conv1.padding[0]]
+        print(x.shape)
+        return x
+
+model = Network()
+print(model(input_data).shape)
