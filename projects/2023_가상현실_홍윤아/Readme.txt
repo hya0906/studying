@@ -1,3 +1,5 @@
+모델 파일: https://drive.google.com/file/d/1fz0DJmZckHnCfOgQ6srNo3iADcuEBgCk/view?usp=drive_link
+
 1. code 폴더의 파일 설명
  - pretrained.py : 모델 학습
  - resize_img : 데이터 이미지 resize(저해상도로 만들기)
